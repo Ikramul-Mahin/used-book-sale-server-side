@@ -20,7 +20,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 async function run() {
     try {
         const categoryCollectons = client.db('resellProducts').collection('bookcategories')
-
+        const usersCollection = client.db('resellProducts').collection('users')
 
         //get resued books categories
         app.get('/categories', async (req, res) => {
@@ -34,6 +34,20 @@ async function run() {
             const id = req.params.id
             const filter = { _id: ObjectId(id) }
             const result = await categoryCollectons.findOne(filter)
+            res.send(result)
+        })
+
+        //post user from sign up
+        app.post('/users', async (req, res) => {
+            const user = req.body
+            console.log(user)
+            const result = await usersCollection.insertOne(user)
+            res.send(result)
+        })
+        app.get('/users', async (req, res) => {
+            const query = {}
+            const cursor = usersCollection.find(query)
+            const result = await cursor.toArray()
             res.send(result)
         })
     }
