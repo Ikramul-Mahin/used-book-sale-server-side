@@ -62,11 +62,17 @@ async function run() {
         //post user from sign up
         app.post('/users', async (req, res) => {
             const user = req.body
-            console.log(user)
             const result = await usersCollection.insertOne(user)
             res.send(result)
         })
 
+        //admin users 
+        app.get('/users/admin/:email', async (req, res) => {
+            const email = req.params.email
+            const query = { email }
+            const user = await usersCollection.findOne(query)
+            res.send({ idAdmin: user?.role === 'admin' })
+        })
         // get user for all buyers
         app.get('/users', async (req, res) => {
             const query = {}
@@ -74,11 +80,11 @@ async function run() {
             const result = await cursor.toArray()
             res.send(result)
         })
+
         // post bookings for books
         app.post('/bookings', async (req, res) => {
             const bookings = req.body
 
-            console.log(bookings)
             const result = await bookingsCollection.insertOne(bookings)
             res.send(result)
         })
@@ -99,20 +105,23 @@ async function run() {
         //add post product
         app.post('/products', async (req, res) => {
             const products = req.body
-            console.log(products)
             const result = await productsCollection.insertOne(products)
             res.send(result)
         })
         //get products by email
         app.get("/products", async (req, res) => {
-            let query = {}
-            if (req.query.email) {
-                email = {
-                    email: req.query.email
-                }
-            }
+            const email = req.query.email
+            const query = { email: email }
             const cursor = productsCollection.find(query)
             const result = await cursor.toArray()
+            res.send(result)
+        })
+        //users by sellers
+        app.get('/users/:role', async (req, res) => {
+            const seller = req.params.role
+            const query = { role: seller }
+            const result = await usersCollection.find(query).toArray()
+            console.log(result.role)
             res.send(result)
         })
         //admin api
@@ -123,7 +132,6 @@ async function run() {
             if (user?.role !== 'admin') {
                 return res.status(403).send({ message: 'forbidden acess' })
             }
-
             const id = req.params.id
             const filter = { _id: ObjectId(id) }
             const options = { upsert: true }
@@ -135,13 +143,14 @@ async function run() {
             const result = await usersCollection.updateOne(filter, updatedDoc, options)
             res.send(result)
         })
+
         //jwt related 
         app.get('/jwt', async (req, res) => {
             const email = req.query.email
             const query = { email: email }
             const user = await usersCollection.findOne(query)
             if (user) {
-                const token = jwt.sign({ email }, process.env.ACCESS_TOKEN, { expiresIn: '1h' })
+                const token = jwt.sign({ email }, process.env.ACCESS_TOKEN, { expiresIn: '10h' })
                 console.log(token)
                 return res.send({ accessToken: token })
             }
