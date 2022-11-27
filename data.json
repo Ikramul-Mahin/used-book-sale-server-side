@@ -1,110 +1,14 @@
 [
     {
-        "name": "Teeth History",
-        "img": "https://images.pexels.com/photos/14510601/pexels-photo-14510601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "products": [
-            {
-                "bookname": "SalaUddin Aiubis Lifestory",
-                "location": "Dhaka",
-                "price": 200,
-                "OriginalPrice": 100,
-                "usedyear": 1,
-                "posteddate": "02/04/21",
-                "sellerName": "Abdullah",
-                "bookimg": "https://images.pexels.com/photos/256450/pexels-photo-256450.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                "bookname": "Khalid Bin Walid Lifestory",
-                "location": "Bogura",
-                "price": 300,
-                "OriginalPrice": 200,
-                "usedyear": 2,
-                "posteddate": "17/04/21",
-                "sellerName": "Abdu",
-                "bookimg": "https://images.pexels.com/photos/6328814/pexels-photo-6328814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                "bookname": "Moghals History",
-                "location": "Sonargaon",
-                "price": 400,
-                "OriginalPrice": 300,
-                "usedyear": 1,
-                "posteddate": "02/06/21",
-                "sellerName": "Rayhan",
-                "bookimg": "https://images.pexels.com/photos/4238507/pexels-photo-4238507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            }
-        ]
+        "categoryName": "History",
+        "img": "https://images.pexels.com/photos/14510601/pexels-photo-14510601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
-        "name": "Story",
-        "img": "https://images.pexels.com/photos/13103829/pexels-photo-13103829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "products": [
-            {
-                "bookname": "School Of Love",
-                "location": "Dhaka",
-                "price": 200,
-                "OriginalPrice": 100,
-                "usedyear": 3,
-                "posteddate": "02/04/22",
-                "sellerName": "Rifat",
-                "bookimg": "https://images.pexels.com/photos/3747565/pexels-photo-3747565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                "bookname": "Raise Of Life",
-                "location": "Natore",
-                "price": 300,
-                "OriginalPrice": 200,
-                "usedyear": 2,
-                "posteddate": "24/04/21",
-                "sellerName": "Abdu",
-                "bookimg": "https://images.pexels.com/photos/3747535/pexels-photo-3747535.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                "bookname": "Revert ",
-                "location": "Sonargaon",
-                "price": 100,
-                "OriginalPrice": 80,
-                "usedyear": 1,
-                "posteddate": "02/28/21",
-                "sellerName": "Rayhan",
-                "bookimg": "https://images.pexels.com/photos/3747487/pexels-photo-3747487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            }
-        ]
+        "categoryName": "Story",
+        "img": "https://images.pexels.com/photos/13103829/pexels-photo-13103829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
-        "name": "Idology",
-        "img": "https://images.pexels.com/photos/3747461/pexels-photo-3747461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "products": [
-            {
-                "bookname": "Think-Crime",
-                "location": "Dhaka",
-                "price": 200,
-                "OriginalPrice": 300,
-                "usedyear": 2,
-                "posteddate": "02/04/21",
-                "sellerName": "Abdullah",
-                "bookimg": "https://images.pexels.com/photos/3747460/pexels-photo-3747460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                "bookname": "Idological Crused",
-                "location": "Pabna",
-                "price": 700,
-                "OriginalPrice": 500,
-                "usedyear": 2,
-                "posteddate": "17/09/21",
-                "sellerName": "Ilma",
-                "bookimg": "https://images.pexels.com/photos/1438252/pexels-photo-1438252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            },
-            {
-                "bookname": "Double Standrad",
-                "location": "Sonargaon",
-                "price": 600,
-                "OriginalPrice": 300,
-                "usedyear": 2,
-                "posteddate": "23/06/21",
-                "sellerName": "Ran",
-                "bookimg": "https://images.pexels.com/photos/185764/pexels-photo-185764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            }
-        ]
+        "categoryName": "Idology",
+        "img": "https://images.pexels.com/photos/3747461/pexels-photo-3747461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
 ]
