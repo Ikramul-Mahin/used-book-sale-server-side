@@ -54,6 +54,15 @@ async function run() {
             }
             next();
         }
+        const veryfySeller = async (req, res, next) => {
+            const decodedEmail = req.decoded.email
+            const query = { email: decodedEmail }
+            const user = await usersCollection.findOne(query)
+            if (user?.role !== 'seller') {
+                return res.status(403).send({ message: 'forbidden accesss' })
+            }
+            next()
+        }
 
         //admin api
         app.put('/users/admin/:id', verifyJWT, async (req, res) => {
@@ -116,12 +125,20 @@ async function run() {
             res.send(result)
         })
 
-        //admin users 
+        //admin users individual
         app.get('/users/admin/:email', async (req, res) => {
             const email = req.params.email
             const query = { email }
             const user = await usersCollection.findOne(query)
             res.send({ idAdmin: user?.role === 'admin' })
+        })
+
+        //seller user individual 
+        app.get('/users/seller/:email', async (req, res) => {
+            const email = req.params.email
+            const query = { email }
+            const user = await usersCollection.findOne(query)
+            res.send({ isSeller: user?.role === 'seller' })
         })
         // get user for all buyers
         app.get('/users', async (req, res) => {
