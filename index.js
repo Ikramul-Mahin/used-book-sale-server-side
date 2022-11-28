@@ -43,6 +43,7 @@ async function run() {
         const categoryName = client.db('resellProducts').collection('categories')
         const usersCollection = client.db('resellProducts').collection('users')
         const bookingsCollection = client.db('resellProducts').collection('bookings')
+
         //veryfy admin
         const verifyAdmin = async (req, res, next) => {
             const decodedEmail = req.decoded.email;
@@ -53,6 +54,8 @@ async function run() {
             }
             next();
         }
+
+        //veryfie seller
         const veryfySeller = async (req, res, next) => {
             const decodedEmail = req.decoded.email
             const query = { email: decodedEmail }
@@ -102,20 +105,7 @@ async function run() {
             const categories = await cursor.toArray()
             res.send(categories)
         })
-        //book categories 
-        // app.get('/bookcategories', async (req, res) => {
-        //     const query = {}
-        //     const cursor = categoryCollectons.find(query)
-        //     const categories = await cursor.toArray()
-        //     res.send(categories)
-        // })
-        //get category wise data
-        // app.get('/categories/:categoryName', async (req, res) => {
-        //     const categoryName = req.params.categoryName
-        //     const filter = { categoryName: categoryName }
-        //     const result = await categoryCollectons.find(filter)
-        //     res.send(result)
-        // })
+
         //category product
         app.get('/categories/:id', async (req, res) => {
             const id = req.params.id
