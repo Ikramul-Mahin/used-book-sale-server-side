@@ -13,7 +13,9 @@ app.use(express.json())
 
 
 //mongodb
-
+// var uri = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ac-frekthl-shard-00-00.v0uxjmt.mongodb.net:27017,ac-frekthl-shard-00-01.v0uxjmt.mongodb.net:27017,ac-frekthl-shard-00-02.v0uxjmt.mongodb.net:27017/?ssl=true&replicaSet=atlas-os4fpi-shard-0&authSource=admin&retryWrites=true&w=majority`;
+// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.v0uxjmt.mongodb.net/?retryWrites=true&w=majority`;
+// console.log(uri)
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.v0uxjmt.mongodb.net/?retryWrites=true&w=majority`;
 console.log(uri)
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -39,6 +41,7 @@ function verifyJWT(req, res, next) {
 }
 async function run() {
     try {
+
         const categoryCollectons = client.db('resellProducts').collection('bookcategories')
         const categoryName = client.db('resellProducts').collection('categories')
         const usersCollection = client.db('resellProducts').collection('users')
