@@ -43,7 +43,6 @@ async function run() {
         const categoryName = client.db('resellProducts').collection('categories')
         const usersCollection = client.db('resellProducts').collection('users')
         const bookingsCollection = client.db('resellProducts').collection('bookings')
-        const productsCollection = client.db('resellProducts').collection('products')
         //veryfy admin
         const verifyAdmin = async (req, res, next) => {
             const decodedEmail = req.decoded.email;
@@ -65,7 +64,7 @@ async function run() {
         }
 
         //admin api
-        app.put('/users/admin/:id', verifyJWT, async (req, res) => {
+        app.put('/users/admin/:id', async (req, res) => {
             const decodedEmail = req.decoded.email
             const query = { email: decodedEmail }
             const user = await usersCollection.findOne(query)
@@ -117,6 +116,15 @@ async function run() {
         //     const result = await categoryCollectons.find(filter)
         //     res.send(result)
         // })
+        //category product
+        app.get('/categories/:id', async (req, res) => {
+            const categoryName = req.params.categoryName
+            console.log(categoryName)
+            const query = { categoryName: categoryName }
+            const products = await categoryCollectons.find(query)
+            console.log(products)
+            res.send(products)
+        })
 
         //post user from sign up
         app.post('/users', async (req, res) => {
