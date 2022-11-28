@@ -118,10 +118,10 @@ async function run() {
         // })
         //category product
         app.get('/categories/:id', async (req, res) => {
-            const categoryName = req.params.categoryName
+            const id = req.params.id
             console.log(categoryName)
-            const query = { categoryName: categoryName }
-            const products = await categoryCollectons.find(query)
+            const query = { product_id: id }
+            const products = await categoryCollectons.find(query).toArray()
             console.log(products)
             res.send(products)
         })
@@ -138,7 +138,7 @@ async function run() {
             const email = req.params.email
             const query = { email }
             const user = await usersCollection.findOne(query)
-            res.send({ idAdmin: user?.role === 'admin' })
+            res.send({ isAdmin: user?.role === 'admin' })
         })
 
         //seller user individual 

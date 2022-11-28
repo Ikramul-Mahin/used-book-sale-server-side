@@ -1,14 +1,17 @@
 [
     {
         "categoryName": "History",
+        "category_id": "01",
         "img": "https://images.pexels.com/photos/14510601/pexels-photo-14510601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "categoryName": "Story",
+        "category_id": "02",
         "img": "https://images.pexels.com/photos/13103829/pexels-photo-13103829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "categoryName": "Idology",
+        "category_id": "03",
         "img": "https://images.pexels.com/photos/3747461/pexels-photo-3747461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
 ]

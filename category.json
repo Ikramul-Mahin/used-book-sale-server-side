@@ -2,6 +2,7 @@
     {
         "bookname": "School Of Love",
         "categoryName": "Story",
+        "product_id": "01",
         "location": "Dhaka",
         "price": 200,
         "OriginalPrice": 100,
@@ -13,6 +14,7 @@
     {
         "bookname": "Raise Of Life",
         "categoryName": "Story",
+        "product_id": "01",
         "location": "Natore",
         "price": 300,
         "OriginalPrice": 200,
@@ -24,6 +26,7 @@
     {
         "bookname": "Revert ",
         "categoryName": "Story",
+        "product_id": "01",
         "location": "Sonargaon",
         "price": 100,
         "OriginalPrice": 80,
@@ -35,6 +38,7 @@
     {
         "bookname": "SalaUddin Aiubis Lifestory",
         "categoryName": "History",
+        "product_id": "02",
         "location": "Dhaka",
         "price": 200,
         "OriginalPrice": 100,
@@ -46,6 +50,7 @@
     {
         "bookname": "Khalid Bin Walid Lifestory",
         "categoryName": "History",
+        "product_id": "02",
         "location": "Bogura",
         "price": 300,
         "OriginalPrice": 200,
@@ -57,6 +62,7 @@
     {
         "bookname": "Moghals History",
         "categoryName": "History",
+        "product_id": "02",
         "location": "Sonargaon",
         "price": 400,
         "OriginalPrice": 300,
@@ -68,6 +74,7 @@
     {
         "bookname": "Think-Crime",
         "categoryName": "Idolozy",
+        "product_id": "03",
         "location": "Dhaka",
         "price": 200,
         "OriginalPrice": 300,
@@ -79,6 +86,7 @@
     {
         "bookname": "Idological Crused",
         "categoryName": "Idolozy",
+        "product_id": "03",
         "location": "Pabna",
         "price": 700,
         "OriginalPrice": 500,
@@ -90,6 +98,7 @@
     {
         "bookname": "Double Standrad",
         "categoryName": "Idolozy",
+        "product_id": "03",
         "location": "Sonargaon",
         "price": 600,
         "OriginalPrice": 300,
