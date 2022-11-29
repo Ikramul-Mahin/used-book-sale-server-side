@@ -5,6 +5,7 @@ require('dotenv').config()
 const port = process.env.PORT || 5000
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const jwt = require('jsonwebtoken')
+const { query } = require('express')
 
 
 //middle
@@ -112,7 +113,6 @@ async function run() {
         //category product
         app.get('/categories/:id', async (req, res) => {
             const id = req.params.id
-            console.log(categoryName)
             const query = { product_id: id }
             const products = await categoryCollectons.find(query).toArray()
             console.log(products)
@@ -140,6 +140,22 @@ async function run() {
             const query = { email }
             const user = await usersCollection.findOne(query)
             res.send({ isSeller: user?.role === 'seller' })
+        })
+        //    all seller
+        app.get('/users/:role', async (req, res) => {
+            const seller = req.params.role
+            const query = { role: seller }
+            const cursor = usersCollection.find(query)
+            const result = await cursor.toArray()
+            res.send(result)
+        })
+        //    all seller
+        app.get('/users/:role', async (req, res) => {
+            const user = req.params.role
+            const query = { role: user }
+            const cursor = usersCollection.find(query)
+            const result = await cursor.toArray()
+            res.send(result)
         })
         // get user for all buyers
         app.get('/users', async (req, res) => {
@@ -185,13 +201,7 @@ async function run() {
             res.send(result)
         })
         //users by sellers
-        app.get('/users/:role', async (req, res) => {
-            const seller = req.params.role
-            const query = { role: seller }
-            const result = await usersCollection.find(query).toArray()
-            console.log(result.role)
-            res.send(result)
-        })
+
 
 
 
