@@ -47,6 +47,7 @@ async function run() {
         const categoryName = client.db('resellProducts').collection('categories')
         const usersCollection = client.db('resellProducts').collection('users')
         const bookingsCollection = client.db('resellProducts').collection('bookings')
+        const reportCollection = client.db('resellProducts').collection('reports')
 
         //veryfy admin
         const verifyAdmin = async (req, res, next) => {
@@ -165,6 +166,14 @@ async function run() {
             res.send(result)
         })
 
+        //delete buyers
+        app.delete('/users/:id', async (req, res) => {
+            const id = req.params.id
+            const query = { _id: ObjectId(id) }
+            const result = await usersCollection.deleteOne(query)
+            res.send(result)
+        })
+
         // post bookings for books
         app.post('/bookings', async (req, res) => {
             const bookings = req.body
@@ -185,6 +194,19 @@ async function run() {
             const result = await cursor.toArray()
             res.send(result)
         })
+        //delete my booking
+        app.delete('/bookings/:id', async (req, res) => {
+            const id = req.params.id
+            const query = { _id: ObjectId(id) }
+            const result = await bookingsCollection.deleteOne(query)
+            res.send(result)
+        })
+        //all reports
+        app.get('/reports', async (req, res) => {
+            const query = {}
+            const reports = await reportCollection.find(query).toArray()
+            res.send(reports)
+        })
 
         //add post product
         app.post('/bookcategories', async (req, res) => {
@@ -198,6 +220,14 @@ async function run() {
             const query = { email: email }
             const cursor = categoryCollectons.find(query)
             const result = await cursor.toArray()
+            res.send(result)
+        })
+        //delete my product
+        app.delete('/bookcategories/:id', async (req, res) => {
+            const id = req.params.id
+            const query = { _id: ObjectId(id) }
+            const result = await categoryCollectons.deleteOne(query)
+            console.log(result)
             res.send(result)
         })
         //users by sellers
